@@ -43,4 +43,15 @@ export class CourseService {
     delete this.courses[id];
   }
 
+  public randomId(): string {
+    const letter = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k'];
+    return letter[this.getRandomInt(0, 11)] + this.getRandomInt(0, 1000);
+  }
+
+  private getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+  }
+
 }

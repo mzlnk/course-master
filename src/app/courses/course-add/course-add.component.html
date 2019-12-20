@@ -1,16 +1,16 @@
 <h2>Dodaj kurs</h2>
-<form id="add-recipe-form" action="">
-  <input type="text" name="newRecipeName" required placeholder="nazwa kursu">
-  <textarea rows="10" name="newRecipeDescription" required placeholder="opis kursu"></textarea>
-  <input type="url" name="newRecipeUrl" required pattern="https?://.+" placeholder="zdjęcie">
-  <input type="number" min="0" max="10" name="newRecipeIngredients" required placeholder="liczba ECTS">
-  <input type="number" min="1" max="11" name="newRecipeIngredients" required placeholder="semestr">
-  <input type="number" min="1" max="100" name="newRecipeIngredients" required placeholder="limit uczestników">
-  <select class="form-control" id="sel1">
+<form [formGroup]="addCourseForm" (ngSubmit)="onCourseAdd(addCourseForm.value)">
+  <input type="text" formControlName="courseName" required placeholder="nazwa kursu">
+  <textarea rows="10" formControlName="courseDescription" required placeholder="opis kursu"></textarea>
+  <input type="url" formControlName="photoUrl" required pattern="https?://.+" placeholder="zdjęcie">
+  <input type="number" min="0" max="10" formControlName="courseEcts" required placeholder="liczba ECTS">
+  <input type="number" min="1" max="11" formControlName="courseSemester" required placeholder="semestr">
+  <input type="number" min="1" max="100" formControlName="courseAttendeesLimit" required placeholder="limit uczestników">
+  <select formControlName="courseType" class="form-control" id="sel1">
     <option>Lecture</option>
     <option>Practicals</option>
     <option>Lab</option>
     <option>Project</option>
   </select>
-  <button type="button">Dodaj kurs</button>
+  <button type="submit">Dodaj kurs</button>
 </form>

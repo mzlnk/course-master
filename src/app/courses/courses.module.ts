@@ -7,6 +7,7 @@ import {CourseSearchComponent} from './course-search/course-search.component';
 import {CourseAddComponent} from './course-add/course-add.component';
 import {CourseShowComponent} from './course-show/course-show.component';
 import {RouterModule} from '@angular/router';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [CourseListComponent,
@@ -17,7 +18,8 @@ import {RouterModule} from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   exports: [
     CourseListComponent,
