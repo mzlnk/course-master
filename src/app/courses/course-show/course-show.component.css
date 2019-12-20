@@ -1,0 +1,22 @@
+:host {
+  display: block;
+  width: 100vw;
+  height: 65vh;
+  font-family: Questrial, serif;
+}
+
+h2, h4, p {
+  width: 100%;
+  text-align: center;
+}
+
+h4 {
+  margin-bottom: 40px;
+}
+
+img {
+  display: block;
+  width: 250px;
+  height: 250px;
+  margin: 0 auto;
+}

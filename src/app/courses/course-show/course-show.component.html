@@ -1,0 +1,9 @@
+<img [src]="course.url" alt="img" />
+<h2>{{course.name}}</h2>
+<h4>{{course.description}}</h4>
+
+<p>Liczba ECTS: {{course.ects}}</p>
+<p>Semestr: {{course.semester}}</p>
+<p>Rodzaj kursu: {{course.courseType}}</p>
+<p>Limit uczestników: {{course.attendeesLimit}}</p>
+<p>Ocena: <span *ngFor="let key of stars()">&#9733;</span></p>

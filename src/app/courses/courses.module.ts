@@ -6,6 +6,7 @@ import {CourseService} from './shared/service/course.service';
 import {CourseSearchComponent} from './course-search/course-search.component';
 import {CourseAddComponent} from './course-add/course-add.component';
 import {CourseShowComponent} from './course-show/course-show.component';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [CourseListComponent,
@@ -15,7 +16,8 @@ import {CourseShowComponent} from './course-show/course-show.component';
     CourseShowComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     CourseListComponent,
