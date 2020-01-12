@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {CourseService} from '../shared/service/course.service';
@@ -14,7 +14,8 @@ export class CourseAddComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private router: Router,
-              private courseService: CourseService) { }
+              private courseService: CourseService) {
+  }
 
   ngOnInit() {
     this.addCourseForm = this.formBuilder.group({
@@ -40,8 +41,8 @@ export class CourseAddComponent implements OnInit {
       attendeesLimit: courseData.courseAttendeesLimit,
       rating: 3
     });
-    alert('Added new course!');
     this.router.navigate(['/']);
+    alert('Added new course!');
   }
 
 }
