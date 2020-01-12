@@ -1,1 +1,2 @@
-<app-course-list></app-course-list>
+<app-course-search-filter (filterDataChanged)="onFilterDataChanged($event)"></app-course-search-filter>
+<app-course-list [filterData]="filterData"></app-course-list>

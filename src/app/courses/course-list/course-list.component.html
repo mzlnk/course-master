@@ -1,1 +1,1 @@
-<app-course-elem *ngFor='let course of courses' [course]="course" (courseRemoved)="onCourseRemoved($event)" [routerLink]="['course', course.id]"></app-course-elem>
+<app-course-elem *ngFor="let course of filteredCourses" [course]="course" (courseRemoved)="onCourseRemoved($event)" [routerLink]="['/courses', course.id]"></app-course-elem>

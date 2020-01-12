@@ -30,7 +30,7 @@ export class CourseAddComponent implements OnInit {
   }
 
   onCourseAdd(courseData): void {
-    this.courseService.addCourse({
+    this.courseService.createOrUpdateCourse({
       id: this.courseService.randomId(),
       name: courseData.courseName,
       description: courseData.courseDescription,

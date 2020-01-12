@@ -1,15 +1,16 @@
-
 :host {
   display: block;
   width: 100vw;
-  height: 100vh;
   background-color: white;
   overflow: hidden;
 }
 
-h1 {
+.title {
+  display: block;
   padding-top: 5vh;
   width: 100%;
+  text-decoration: none;
+  color: black;
   text-align: center;
   font-size: 3rem;
   font-family: 'Questrial', sans-serif;

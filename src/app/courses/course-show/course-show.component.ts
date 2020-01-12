@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {CourseService} from '../shared/service/course.service';
+import {StarRatingComponent} from 'ng-starrating';
 
 @Component({
   selector: 'app-course-show',
@@ -11,6 +12,8 @@ export class CourseShowComponent implements OnInit, OnDestroy {
 
   course: any;
 
+  rating: number;
+
   private sub: any;
 
   constructor(private route: ActivatedRoute,
@@ -20,6 +23,7 @@ export class CourseShowComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.course = this.courseService.getCourse(params.id);
+      this.rating = this.course.rating;
     });
   }
 
@@ -27,11 +31,9 @@ export class CourseShowComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  stars(): number[] {
-    const arr =  Array.from(Array(this.course.rating).keys());
-    console.log('rate: ' + this.course.rate);
-    console.log('array: ' + arr);
-    return arr;
-  }
+  onRate($event: { oldValue: number, newValue: number, starRating: StarRatingComponent}) {
+    this.course.rating = $event.newValue;
+    this.courseService.createOrUpdateCourse(this.course);
+  };
 
 }

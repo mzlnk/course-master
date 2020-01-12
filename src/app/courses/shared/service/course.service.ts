@@ -4,6 +4,7 @@ import {CoursesModule} from '../../courses.module';
 import * as coursesData from '../../../../assets/courses.json';
 import {Course} from '../model/course.model';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -35,7 +36,7 @@ export class CourseService {
     return this.courses[id];
   }
 
-  public addCourse(course: Course): void {
+  public createOrUpdateCourse(course: Course): void {
     this.courses[course.id] = course;
   }
 

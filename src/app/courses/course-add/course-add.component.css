@@ -1,7 +1,10 @@
 :host {
   display: block;
-  width: 50vw;
+  width: 95vw;
+  max-width: 1200px;
   height: 65vh;
+  padding-left: 50px;
+  padding-right: 50px;
   font-family: Questrial, serif;
   margin: 0 auto;
 }
@@ -9,18 +12,30 @@
 h2 {
   width: 100%;
   text-align: center;
+  margin-top: 25px;
+  margin-bottom: 30px;
 }
 
 input {
-  width: 100%;
-  margin-bottom: 20px;
+  display: block;
+  width: 80%;
+  margin: 0 auto 20px;
 }
 
 textarea {
   display: block;
-  width: 100%;
+  width: 80%;
   resize: none;
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
+}
+
+select {
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+  height: auto;
+  border: solid 1px #a8a8a8;
+  border-radius: 0;
 }
 
 button {

@@ -1,7 +1,7 @@
 <h2>Dodaj kurs</h2>
 <form [formGroup]="addCourseForm" (ngSubmit)="onCourseAdd(addCourseForm.value)">
   <input type="text" formControlName="courseName" required placeholder="nazwa kursu">
-  <textarea rows="10" formControlName="courseDescription" required placeholder="opis kursu"></textarea>
+  <textarea rows="6" formControlName="courseDescription" required placeholder="opis kursu"></textarea>
   <input type="url" formControlName="photoUrl" required pattern="https?://.+" placeholder="zdjęcie">
   <input type="number" min="0" max="10" formControlName="courseEcts" required placeholder="liczba ECTS">
   <input type="number" min="1" max="11" formControlName="courseSemester" required placeholder="semestr">

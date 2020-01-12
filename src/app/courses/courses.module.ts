@@ -7,30 +7,40 @@ import {CourseSearchComponent} from './course-search/course-search.component';
 import {CourseAddComponent} from './course-add/course-add.component';
 import {CourseShowComponent} from './course-show/course-show.component';
 import {RouterModule} from '@angular/router';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {RatingModule} from 'ng-starrating';
 import { CourseSearchFilterComponent } from './course-search-filter/course-search-filter.component';
+import {CourseSearchFilterPipe} from './shared/pipe/course-search-filter.pipe';
 
 @NgModule({
-  declarations: [CourseListComponent,
+  declarations: [
+    CourseListComponent,
     CourseElemComponent,
     CourseSearchComponent,
     CourseAddComponent,
     CourseShowComponent,
-    CourseSearchFilterComponent
+    CourseSearchFilterComponent,
+    CourseSearchFilterPipe
   ],
   imports: [
     CommonModule,
     RouterModule,
-    ReactiveFormsModule
+    RatingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   exports: [
     CourseListComponent,
     CourseElemComponent,
     CourseSearchComponent,
     CourseAddComponent,
-    CourseShowComponent
+    CourseShowComponent,
+    CourseSearchFilterComponent
   ],
-  providers: [CourseService],
+  providers: [
+    CourseService,
+    CourseSearchFilterPipe
+  ],
 })
 export class CoursesModule {
 }
