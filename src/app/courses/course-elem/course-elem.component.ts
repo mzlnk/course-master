@@ -26,12 +26,14 @@ export class CourseElemComponent implements OnInit {
     })
   }
 
-  removeCourse(): void {
+  removeCourse($event: MouseEvent): void {
     this.courseRemoved.emit(this.course.id);
+    $event.stopPropagation();
   }
 
-  editCourse(): void {
+  editCourse($event: MouseEvent): void {
     this.router.navigate([`/courses/edit`, this.course.id]);
+    $event.stopPropagation();
   }
 
 }

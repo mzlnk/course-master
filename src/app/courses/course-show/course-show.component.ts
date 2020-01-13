@@ -40,12 +40,12 @@ export class CourseShowComponent implements OnInit {
 
         console.log(`course: ${JSON.stringify(course)}`);
         this.course = course;
-        this.rating = (this.course.rates != 0 ? Math.round(this.course.rateSum / this.course.rates * 100) / 100 : 0);
-
-        this.userService.currentUser().subscribe(user => {
-          this.user = user;
-        });
+        this.rating = (this.course.rates !== 0 ? Math.round(this.course.rateSum / this.course.rates * 100) / 100 : 0);
       });
+
+    this.userService.currentUser().subscribe(user => {
+      this.user = user;
+    });
   }
 
   onRate($event: { oldValue: number, newValue: number, starRating: StarRatingComponent }) {
@@ -66,11 +66,15 @@ export class CourseShowComponent implements OnInit {
   }
 
   public isCourseJoined(): boolean {
-    return this.user != null && this.user.joinedCourses.includes(this.course.id);
+    return this.user != null && this.course != null && this.user.joinedCourses.includes(this.course.id);
   }
 
   public isCourseRated(): boolean {
-    return this.user != null && this.user.ratedCourses.includes(this.course.id);
+    return this.user != null && this.course != null && this.user.ratedCourses.includes(this.course.id);
+  }
+
+  public isCourseAchievedAttendeeLimit(): boolean {
+    return this.course != null && this.course.attendees >= this.course.attendeesLimit;
   }
 
 }

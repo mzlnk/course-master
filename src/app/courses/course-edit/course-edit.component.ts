@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {CourseService} from '../shared/service/course.service';
 import {switchMap} from 'rxjs/operators';
 import {of} from 'rxjs';
+import {Course} from '../shared/model/course.model';
 
 @Component({
   selector: 'app-course-edit',
@@ -12,9 +13,8 @@ import {of} from 'rxjs';
 })
 export class CourseEditComponent implements OnInit {
 
-  private courseId: string;
-
   editCourseForm;
+  private course: Course;
 
   constructor(private formBuilder: FormBuilder,
               private router: Router,
@@ -23,19 +23,29 @@ export class CourseEditComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.editCourseForm = this.formBuilder.group({
+      courseName: '',
+      courseDescription: '',
+      photoUrl: '',
+      courseEcts: '',
+      courseSemester: '',
+      courseAttendeesLimit: '',
+      courseType: ''
+    });
+
     this.route.params.pipe(switchMap(params => {
-      if(params && params.id) {
+      if (params && params.id) {
         return this.courseService.getCourse(params.id);
       } else {
         return of(null);
       }
     }))
       .subscribe(course => {
-        if(course == null) {
+        if (course == null) {
           return;
         }
 
-        this.courseId = course.id;
+        this.course = course;
 
         this.editCourseForm = this.formBuilder.group({
           courseName: course.name,
@@ -51,7 +61,7 @@ export class CourseEditComponent implements OnInit {
 
   onCourseEdit(courseData): void {
     this.courseService.createOrUpdateCourse({
-      id: this.courseId,
+      id: this.course.id,
       name: courseData.courseName,
       description: courseData.courseDescription,
       url: courseData.photoUrl,
@@ -60,7 +70,8 @@ export class CourseEditComponent implements OnInit {
       courseType: courseData.courseType,
       attendeesLimit: courseData.courseAttendeesLimit,
       attendees: 0,
-      rating: 0
+      rateSum: this.course.rateSum,
+      rates: this.course.rates
     });
 
     this.router.navigate(['/courses']);
