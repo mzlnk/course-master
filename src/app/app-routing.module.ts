@@ -12,6 +12,7 @@ import {CourseEditComponent} from './courses/course-edit/course-edit.component';
 
 import {AuthGuard} from './guard/auth.guard';
 import {canActivate} from '@angular/fire/auth-guard';
+import {NotAuthGuard} from './guard/not-auth.guard';
 
 const routes: Routes = [
   {
@@ -41,11 +42,13 @@ const routes: Routes = [
   },
   {
     path: 'sign-in',
-    component: SignInComponent
+    component: SignInComponent,
+    canActivate: [NotAuthGuard]
   },
   {
     path: 'sign-up',
-    component: SignUpComponent
+    component: SignUpComponent,
+    canActivate: [NotAuthGuard]
   }
 ];
 

@@ -8,7 +8,7 @@ export interface Course {
   courseType: CourseType;
   attendeesLimit: number;
   attendees: number;
-  rates: number,
+  rates: number;
   rateSum: number;
 }
 
