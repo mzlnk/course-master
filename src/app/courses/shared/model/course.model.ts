@@ -7,7 +7,9 @@ export interface Course {
   semester: number;
   courseType: CourseType;
   attendeesLimit: number;
-  rating: number;
+  attendees: number;
+  rates: number,
+  rateSum: number;
 }
 
 export enum CourseType {

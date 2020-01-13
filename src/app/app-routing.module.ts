@@ -8,6 +8,10 @@ import {CourseShowComponent} from './courses/course-show/course-show.component';
 import {WelcomeComponent} from './home/welcome/welcome.component';
 import {SignInComponent} from './home/sign-in/sign-in.component';
 import {SignUpComponent} from './home/sign-up/sign-up.component';
+import {CourseEditComponent} from './courses/course-edit/course-edit.component';
+
+import {AuthGuard} from './guard/auth.guard';
+import {canActivate} from '@angular/fire/auth-guard';
 
 const routes: Routes = [
   {
@@ -17,15 +21,23 @@ const routes: Routes = [
   },
   {
     path: 'courses',
-    component: CourseSearchComponent
+    component: CourseSearchComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path: 'add',
+    path: 'courses/add',
     component: CourseAddComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path: 'courses/:id',
-    component: CourseShowComponent
+    path: 'courses/edit/:id',
+    component: CourseEditComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'courses/show/:id',
+    component: CourseShowComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'sign-in',

@@ -22,9 +22,9 @@ export class CourseAddComponent implements OnInit {
       courseName: '',
       courseDescription: '',
       photoUrl: '',
-      courseEcts: 0,
-      courseSemester: 1,
-      courseAttendeesLimit: 1,
+      courseEcts: '',
+      courseSemester: '',
+      courseAttendeesLimit: '',
       courseType: 'Lecture'
     });
   }
@@ -39,7 +39,9 @@ export class CourseAddComponent implements OnInit {
       semester: courseData.courseSemester,
       courseType: courseData.courseType,
       attendeesLimit: courseData.courseAttendeesLimit,
-      rating: 3
+      attendees: 0,
+      rates: 0,
+      rateSum: 0
     });
     this.router.navigate(['/']);
     alert('Added new course!');

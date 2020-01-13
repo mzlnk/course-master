@@ -46,8 +46,7 @@ export class CourseSearchFilterPipe implements PipeTransform {
     return courses.filter(course => {
       if(!allNames && !course.name.toLowerCase().includes(courseName)) return false;
       if(!allSemesters && !semesters[course.semester]) return false;
-      console.log(course.name + ' -> ' + course.rating);
-      if(!allRatings && !ratings[course.rating]) return false;
+      if(!allRatings && !ratings[Math.round(course.rates != 0 ? (course.rateSum / course.rates) : 0)]) return false;
       if(!allEcts && !ects[course.ects]) return false;
 
       return true;

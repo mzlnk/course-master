@@ -31,6 +31,10 @@ export class UserService {
     return this.user;
   }
 
+  public createOrUpdateUser(user: User): void {
+    this.firestore.doc(`users/${user.uid}`).set(user);
+  }
+
   public signIn(email: string, password: string): any {
     return this.angularFireAuth.auth.signInWithEmailAndPassword(email, password)
       .then((result) => {
@@ -49,8 +53,9 @@ export class UserService {
         this.firestore.doc(`users/${result.user.uid}`).set({
           uid: result.user.uid,
           email: result.user.email,
-          courses: [],
-          roles: ['user']
+          roles: ['user'],
+          joinedCourses: [],
+          ratedCourses: []
         });
 
         this.router.navigate(['']);
@@ -66,11 +71,11 @@ export class UserService {
       });
   }
 
-  public canEdit(user: User): boolean {
+  public canEditCourse(user: User): boolean {
     return user != null && user.roles.includes('admin');
   }
 
-  public canSearch(user: User): boolean {
+  public canSearchCourse(user: User): boolean {
     return user != null && user.roles.includes('user');
   }
 

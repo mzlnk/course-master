@@ -1,0 +1,16 @@
+<h2>Edit course</h2>
+<form [formGroup]="editCourseForm" (ngSubmit)="onCourseEdit(editCourseForm.value)">
+  <input type="text" formControlName="courseName" required placeholder="nazwa kursu">
+  <textarea rows="6" formControlName="courseDescription" required placeholder="opis kursu"></textarea>
+  <input type="url" formControlName="photoUrl" required pattern="https?://.+" placeholder="zdjęcie">
+  <input type="number" min="0" max="10" formControlName="courseEcts" required placeholder="liczba ECTS">
+  <input type="number" min="1" max="11" formControlName="courseSemester" required placeholder="semestr">
+  <input type="number" min="1" max="100" formControlName="courseAttendeesLimit" required placeholder="limit uczestników">
+  <select formControlName="courseType" class="form-control" id="sel1">
+    <option>Lecture</option>
+    <option>Practicals</option>
+    <option>Lab</option>
+    <option>Project</option>
+  </select>
+  <button type="submit">Update course</button>
+</form>

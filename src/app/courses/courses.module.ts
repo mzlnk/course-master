@@ -11,6 +11,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RatingModule} from 'ng-starrating';
 import { CourseSearchFilterComponent } from './course-search-filter/course-search-filter.component';
 import {CourseSearchFilterPipe} from './shared/pipe/course-search-filter.pipe';
+import { CourseEditComponent } from './course-edit/course-edit.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {CourseSearchFilterPipe} from './shared/pipe/course-search-filter.pipe';
     CourseAddComponent,
     CourseShowComponent,
     CourseSearchFilterComponent,
-    CourseSearchFilterPipe
+    CourseSearchFilterPipe,
+    CourseEditComponent
   ],
   imports: [
     CommonModule,

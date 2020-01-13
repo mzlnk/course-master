@@ -3,6 +3,9 @@ import {CoursesModule} from '../../courses.module';
 // @ts-ignore
 import * as coursesData from '../../../../assets/courses.json';
 import {Course} from '../model/course.model';
+import {AngularFirestore} from '@angular/fire/firestore';
+import {Observable} from 'rxjs';
+import {UUID} from 'angular2-uuid';
 
 
 @Injectable({
@@ -12,47 +15,28 @@ export class CourseService {
 
   private courses: any = {};
 
-  constructor() {
-    this.loadCourses();
+  constructor(private firestore: AngularFirestore) {
   }
 
-  private loadCourses(): void {
-    console.log(coursesData.courses);
-    for (const c of coursesData.courses) {
-      this.courses[c.id] = c;
-    }
+  public getCourses(): Observable<Course[]> {
+    return this.firestore.collection<Course>('courses').valueChanges();
   }
 
-  public getCourses(): any {
-    const list = [];
-    console.log('length: ' + Object.keys(this.courses).length);
-    for (const id in this.courses) {
-      list.push(this.courses[id]);
-    }
-    return list;
-  }
-
-  public getCourse(id: string): Course {
+  public getCourse(id: string): Observable<Course> {
+    return this.firestore.doc<Course>(`courses/${id}`).valueChanges();
     return this.courses[id];
   }
 
   public createOrUpdateCourse(course: Course): void {
-    this.courses[course.id] = course;
+    this.firestore.doc<Course>(`courses/${course.id}`).set(course);
   }
 
   public removeCourse(id: string): void {
-    delete this.courses[id];
+    this.firestore.doc<Course>(`courses/${id}`).delete();
   }
 
   public randomId(): string {
-    const letter = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k'];
-    return letter[this.getRandomInt(0, 11)] + this.getRandomInt(0, 1000);
-  }
-
-  private getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+    return UUID.UUID();
   }
 
 }

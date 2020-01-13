@@ -21,8 +21,10 @@ export class CourseListComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    this.courses = this.courseService.getCourses();
-    this.filterCourses();
+    this.courseService.getCourses().subscribe(courses => {
+      this.courses = courses;
+      this.filterCourses();;
+    });
   }
 
   ngOnChanges() {
@@ -31,7 +33,7 @@ export class CourseListComponent implements OnInit, OnChanges {
 
   onCourseRemoved(id: string): void {
     this.courseService.removeCourse(id);
-    this.courses = this.courseService.getCourses(); // todo: check if correct way to update view
+    // this.courses = this.courseService.getCourses(); // todo: check if correct way to update view
     this.filterCourses();
   }
 

@@ -3,5 +3,7 @@ export interface User {
   uid: string;
   email: string;
   roles: string[];
-  courses: string[];
+  joinedCourses: string[];
+  ratedCourses: string[];
+
 }

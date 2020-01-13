@@ -33,11 +33,11 @@ export class AppComponent implements OnInit {
   }
 
   public canSearchCourses(): boolean {
-    return this.userService.canSearch(this.user);
+    return this.userService.canSearchCourse(this.user);
   }
 
   public canEditCourses(): boolean {
-    return this.userService.canEdit(this.user);
+    return this.userService.canEditCourse(this.user);
   }
 
   public isUserSignedIn(): boolean {
