@@ -20,10 +20,10 @@ export class NotAuthGuard implements CanActivate {
 
     return this.userService.currentUser().pipe(map(user => {
       if (user !== null) {
+        this.router.navigate(['/']);
         return false;
       }
 
-      this.router.navigate(['/']);
       return true;
     }));
   }

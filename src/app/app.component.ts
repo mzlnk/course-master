@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
 
     this.userService.currentUser().subscribe(user => {
       this.user = user;
-      this.username = user ? user.email : "";
+      this.username = user ? user.email : '';
 
       console.log(`changed user status -> ${JSON.stringify(user)}`);
     });

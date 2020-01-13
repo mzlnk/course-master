@@ -1,5 +1,9 @@
 :host {
   display: block;
   width: 100vw;
-  height: 65vh;
+  min-height: 600px;
+}
+
+app-course-search-filter {
+  margin-bottom: 45px;
 }

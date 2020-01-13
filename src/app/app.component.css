@@ -2,25 +2,27 @@
   display: block;
   width: 100vw;
   background-color: white;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .title {
   display: block;
-  padding-top: 5vh;
   width: 100%;
   text-decoration: none;
   color: black;
   text-align: center;
   font-size: 3rem;
   font-family: 'Questrial', sans-serif;
+  margin-top: 80px;
 }
 
 .details-options {
-  width: 40%;
+  width: 95%;
+  max-width: 800px;
   margin: 0 auto;
   padding-top: 30px;
   padding-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .details-options > div {
@@ -40,10 +42,11 @@
 }
 
 footer {
+  position: relative;
   display: block;
   width: 100%;
-  position: absolute;
-  bottom: 15px;
+  margin-top: 150px;
+  margin-bottom: 30px;
 }
 
 footer > a {
