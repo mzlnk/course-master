@@ -11,12 +11,12 @@ import {Router} from '@angular/router';
 })
 export class CourseElemComponent implements OnInit {
 
-  private user: User;
+  user: User;
 
   @Input() course: Course;
   @Output() courseRemoved = new EventEmitter<string>();
 
-  constructor(private userService: UserService,
+  constructor(public userService: UserService,
               private router: Router) {
   }
 

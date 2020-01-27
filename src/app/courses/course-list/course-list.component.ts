@@ -15,7 +15,7 @@ export class CourseListComponent implements OnInit, OnChanges {
   @Input()
   filterData: any;
 
-  private filteredCourses: Course[];
+  filteredCourses: Course[];
 
   constructor(private courseService: CourseService, private courseSearchFilterPipe: CourseSearchFilterPipe) {
   }
@@ -23,7 +23,7 @@ export class CourseListComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.courseService.getCourses().subscribe(courses => {
       this.courses = courses;
-      this.filterCourses();;
+      this.filterCourses();
     });
   }
 
