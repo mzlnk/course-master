@@ -38,7 +38,6 @@ export class CourseShowComponent implements OnInit {
           return;
         }
 
-        console.log(`course: ${JSON.stringify(course)}`);
         this.course = course;
         this.rating = (this.course.rates !== 0 ? Math.round(this.course.rateSum / this.course.rates * 100) / 100 : 0);
       });

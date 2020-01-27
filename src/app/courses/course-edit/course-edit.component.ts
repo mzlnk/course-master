@@ -60,6 +60,11 @@ export class CourseEditComponent implements OnInit {
   }
 
   onCourseEdit(courseData): void {
+    if (this.editCourseForm.invalid) {
+      alert('invalid form!');
+      return;
+    }
+
     this.courseService.createOrUpdateCourse({
       id: this.course.id,
       name: courseData.courseName,

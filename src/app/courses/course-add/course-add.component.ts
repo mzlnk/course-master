@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder} from '@angular/forms';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Router} from '@angular/router';
 import {CourseService} from '../shared/service/course.service';
 
 @Component({
@@ -30,6 +30,10 @@ export class CourseAddComponent implements OnInit {
   }
 
   onCourseAdd(courseData): void {
+    if (this.addCourseForm.invalid) {
+      return;
+    }
+
     this.courseService.createOrUpdateCourse({
       id: this.courseService.randomId(),
       name: courseData.courseName,

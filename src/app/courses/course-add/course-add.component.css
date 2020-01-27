@@ -39,3 +39,7 @@ button {
   display: block;
   margin: 20px auto;
 }
+
+textarea:required:invalid, input:required:invalid {
+  border: 2px solid rgba(255, 91, 67, 0.58);
+}
