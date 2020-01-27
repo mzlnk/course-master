@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   firebase: {
-    apiKey: "[api-key-here]",
+    apiKey: "AIzaSyC3Qsva208Q8gA1yahkmQw0ZFT1oWEvu7s",
     authDomain: "course-master-agh.firebaseapp.com",
     databaseURL: "https://course-master-agh.firebaseio.com",
     projectId: "course-master-agh",

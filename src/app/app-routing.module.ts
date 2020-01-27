@@ -13,6 +13,7 @@ import {CourseEditComponent} from './courses/course-edit/course-edit.component';
 import {AuthGuard} from './guard/auth.guard';
 import {canActivate} from '@angular/fire/auth-guard';
 import {NotAuthGuard} from './guard/not-auth.guard';
+import {AdminAuthGuard} from './guard/admin-auth.guard';
 
 const routes: Routes = [
   {
@@ -28,12 +29,12 @@ const routes: Routes = [
   {
     path: 'courses/add',
     component: CourseAddComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AdminAuthGuard]
   },
   {
     path: 'courses/edit/:id',
     component: CourseEditComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AdminAuthGuard]
   },
   {
     path: 'courses/show/:id',
